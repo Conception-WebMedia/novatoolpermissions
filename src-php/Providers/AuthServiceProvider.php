@@ -29,7 +29,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->policies[config('brandenburg.userModel')] = UserPolicy::class;
+        $this->policies[config('brandenburg.userModel')] = config('novatoolpermissions.userPolicy', UserPolicy::class);
 
         $this->registerPolicies();
         $this->defineGates();
